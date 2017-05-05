@@ -41,9 +41,10 @@ public class LoginServlet extends HttpServlet {
 		else{
 		LoginService loginservice=new LoginService();
 		boolean respond=loginservice.authenticate(username, password);
-		System.out.println(respond);
 		if(respond)
-			response.sendRedirect("ShowDescriptions.jsp?username="+username);
+		{	
+			request.getRequestDispatcher("ShowDescriptions.jsp?username="+username).include(request, response);
+		}
 		else
 			response.sendRedirect("Error.jsp");
 		}

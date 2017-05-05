@@ -15,6 +15,8 @@
 	 
 	if(s==null)
 		response.sendRedirect("Login.jsp");
+	
+	
 	%>
 
 <head>
@@ -33,7 +35,9 @@
 
 	<div>
 		<input type="text" value="Welcome ,<%= request.getParameter("username") %>" disabled="enable"> 
-		<form method="post" action="RequestController"><input type="submit" value="Request TechTalks" ></form>
+		<form method="post" action="RequestController"><input type="submit" value="Request TechTalks" >
+		<input type="hidden" value="<%=request.getParameter("username")%>" name="username">
+		</form>
 		<form action="Logout" method="post"><input type="submit" value="Logout"></form></div>
 <table>
 <tbody>
